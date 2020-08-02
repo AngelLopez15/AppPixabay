@@ -28,7 +28,7 @@ function App() {
       // per_page es un parametro que nos da la API para poder decirle cuandotas imagenes queremos
       // que nos retorne por pagina. Siempre cuando se va a paginar hay que decirle a backend que 
       // nos de un endpoint que haga eso.
-      const url=`https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}`
+      const url=`https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`
     
       const respuesta = await fetch(url)
 
@@ -41,9 +41,13 @@ function App() {
 
       setTotalPaginas(calcularTotalPaginas)
 
+      // Mover la pantalla hacia arriba
+      const jumbotron= document.querySelector('.jumbotron')
+      jumbotron.scrollIntoView({behavior:'smooth'})
+      
     }
     consultarAPI()
-  }, [busqueda])
+  }, [busqueda,paginaActual])
 
   // definir la pagina anterior
   const paginaAnterior=()=>{
@@ -78,21 +82,25 @@ function App() {
         />
       </div>
 
+      {(paginaActual===1)? null : (
       <button
         type="button"
         className="btn btn-info mr-1"
         onClick={paginaAnterior}
-      >
+        >
         &laquo; Anterior
-      </button>
-      <button
+        </button>
+      )}
+      
+      {(paginaActual===totalPaginas) ? null : (
+        <button
         type="button"
         className="btn btn-info"
         onClick={paginaSiguiente}
-      >
+        >
         Siguiente &raquo;
-      </button>
-
+        </button>
+      )}
     </div>
   );
 }
