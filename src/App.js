@@ -9,6 +9,12 @@ function App() {
 
   const [imagenes, setImagenes] = useState([])
 
+  // states para agregar el paginador
+  const [paginaActual, setPaginaActual] = useState(1)
+
+  const [totalPaginas, setTotalPaginas] = useState(1)
+
+
   useEffect(()=>{
     const consultarAPI= async()=>{
       // al cargar el componenete la primera vez va a tratar de hacer la busqueda
@@ -29,6 +35,11 @@ function App() {
       const resultado = await respuesta.json()
 
       setImagenes(resultado.hits)
+
+      // calcular el total de paginas
+      const calcularTotalPaginas = Math.ceil(resultado.totalHits/imagenesPorPagina)
+
+      setTotalPaginas(calcularTotalPaginas)
 
     }
     consultarAPI()
