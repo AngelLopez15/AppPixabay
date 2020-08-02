@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Error } from './Error'
 
-export const Formulario = () => {
+export const Formulario = ({setBusqueda}) => {
 
   const [termino, setTermino] = useState('')
   const [error, setError] = useState(false)
@@ -14,8 +14,9 @@ export const Formulario = () => {
       return
     }
     setError(false)
+    
     // enviar el termino de busqueda hacia el componente principal
-
+    setBusqueda()
 
   }
 
