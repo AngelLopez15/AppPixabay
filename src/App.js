@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Formulario } from './components/Formulario';
+import { ListadoImagen } from './components/ListadoImagen';
 
 function App() {
 
   // state de la app
   const [busqueda, setBusqueda] = useState('')
+
+  const [imagenes, setImagenes] = useState([])
 
   useEffect(()=>{
     const consultarAPI= async()=>{
@@ -16,13 +19,16 @@ function App() {
 
       const imagenesPorPagina= 30
       const key='AQui-VA-LA-APIKEY'
+      // per_page es un parametro que nos da la API para poder decirle cuandotas imagenes queremos
+      // que nos retorne por pagina. Siempre cuando se va a paginar hay que decirle a backend que 
+      // nos de un endpoint que haga eso.
       const url=`https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}`
     
       const respuesta = await fetch(url)
 
       const resultado = await respuesta.json()
 
-      setBusqueda(resultado.hits)
+      setImagenes(resultado.hits)
 
     }
     consultarAPI()
@@ -36,6 +42,13 @@ function App() {
           setBusqueda={setBusqueda}
         />
       </div>
+
+      <div className="row justify-content-center">
+        <ListadoImagen
+          imagenes={imagenes}
+        />
+      </div>
+
     </div>
   );
 }
