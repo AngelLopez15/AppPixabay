@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/AppPixabay/static/js/main.a34b80eb.chunk.js",
+    "main.js.map": "/AppPixabay/static/js/main.a34b80eb.chunk.js.map",
+    "runtime-main.js": "/AppPixabay/static/js/runtime-main.b7a8fe97.js",
+    "runtime-main.js.map": "/AppPixabay/static/js/runtime-main.b7a8fe97.js.map",
+    "static/js/2.6b1d8ab6.chunk.js": "/AppPixabay/static/js/2.6b1d8ab6.chunk.js",
+    "static/js/2.6b1d8ab6.chunk.js.map": "/AppPixabay/static/js/2.6b1d8ab6.chunk.js.map",
+    "index.html": "/AppPixabay/index.html",
+    "precache-manifest.0ad0a7eb298fa9f2a0b11444df41877d.js": "/AppPixabay/precache-manifest.0ad0a7eb298fa9f2a0b11444df41877d.js",
+    "service-worker.js": "/AppPixabay/service-worker.js",
+    "static/js/2.6b1d8ab6.chunk.js.LICENSE.txt": "/AppPixabay/static/js/2.6b1d8ab6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b7a8fe97.js",
+    "static/js/2.6b1d8ab6.chunk.js",
+    "static/js/main.a34b80eb.chunk.js"
+  ]
+}
